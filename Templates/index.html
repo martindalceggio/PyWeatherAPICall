@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Current Weather</h1>
+    <p>City: {{ current_weather.data[0].city_name }}</p>
+    <p>Temperature: {{ current_weather.data[0].temp }}°C</p>
+    <p>Weather Condition: {{ current_weather.data[0].weather.description }}</p>
+
+    <h1>Forecast Weather</h1>
+    <ul>
+    {% for forecast in forecast_weather.data %}
+        <li>
+            <p>Date: {{ forecast.datetime }}</p>
+            <p>Temperature: {{ forecast.temp }}°C</p>
+            <p>Weather Condition: {{ forecast.weather.description }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
